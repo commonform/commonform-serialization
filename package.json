@@ -5,7 +5,7 @@
     "url": "http://kemitchell.com/"
   },
   "bugs": {
-    "url": "https://github.com/commonform/commonform-serialization/issues"
+    "url": "https://github.com/commonform/commonform-serialize/issues"
   },
   "description": "Common Form deterministic serialization",
   "devDependencies": {
@@ -15,7 +15,7 @@
     "jshint": "^2.6.0",
     "mocha": "^2.1.0"
   },
-  "homepage": "https://github.com/commonform/commonform-serialization",
+  "homepage": "https://github.com/commonform/commonform-serialize",
   "keywords": [
     "contracts",
     "document assembly",
@@ -23,11 +23,11 @@
     "law"
   ],
   "license": "Apache-2.0",
-  "main": "commonform-serialization.js",
-  "name": "commonform-serialization",
+  "main": "commonform-serialize.js",
+  "name": "commonform-serialize",
   "repository": {
     "type": "git",
-    "url": "https://github.com/commonform/commonform-serialization.git"
+    "url": "https://github.com/commonform/commonform-serialize.git"
   },
   "scripts": {
     "pre-commit": "npm run lint && npm run coverage",
