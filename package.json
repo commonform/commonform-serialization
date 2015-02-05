@@ -23,7 +23,6 @@
     "law"
   ],
   "license": "Apache-2.0",
-  "main": "commonform-serialize.js",
   "name": "commonform-serialize",
   "repository": {
     "type": "git",
