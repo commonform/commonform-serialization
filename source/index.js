@@ -35,4 +35,4 @@ exports.parse = function(argument) {
   return Immutable.fromJS(JSON.parse(argument));
 };
 
-exports.version = '0.1.0';
+exports.version = '0.2.0';
