@@ -1,39 +1,42 @@
 /* jshint node: true, mocha: true */
+var Immutable = require('immutable');
 var expect = require('chai').expect;
-var commonform = require('..');
+var serialize = require('..');
+
+var fromJS = Immutable.fromJS.bind(Immutable);
 
 describe('Stringification', function() {
   it('sorts object keys', function() {
-    var ab = {a: '1', b: '2'};
-    var ba = {b: '2', a: '1'};
-    expect(commonform.stringify(ab))
-      .to.equal(commonform.stringify(ba));
+    var ab = fromJS({a: '1', b: '2'});
+    var ba = fromJS({b: '2', a: '1'});
+    expect(serialize.stringify(ab))
+      .to.equal(serialize.stringify(ba));
   });
 
   it('outputs valid JSON object', function() {
-    var object = {a: '1'};
-    var output = commonform.stringify(object);
+    var object = fromJS({a: '1'});
+    var output = serialize.stringify(object);
     expect(JSON.parse(output))
-      .to.eql(object);
+      .to.eql(object.toJS());
   });
 
   it('outputs valid JSON array', function() {
-    var object = {a: ['1', '2']};
-    var output = commonform.stringify(object);
+    var object = Immutable.fromJS({a: ['1', '2']});
+    var output = serialize.stringify(object);
     expect(JSON.parse(output))
-      .to.eql(object);
+      .to.eql(object.toJS());
   });
 
   it('outputs valid JSON empty array', function() {
-    var object = {a: []};
-    var output = commonform.stringify(object);
+    var object = Immutable.fromJS({a: []});
+    var output = serialize.stringify(object);
     expect(JSON.parse(output))
-      .to.eql(object);
+      .to.eql(object.toJS());
   });
 
   it('escapes quotes', function() {
-    var object = {a: '"this is a test"'};
-    expect(commonform.stringify(object))
+    var object = fromJS({a: '"this is a test"'});
+    expect(serialize.stringify(object))
       .to.eql('{"a":"\\"this is a test\\""}');
   });
 
@@ -47,12 +50,18 @@ describe('Stringification', function() {
   Object.getOwnPropertyNames(invalidValues).map(function(type) {
     it('throw error on ' + type, function() {
       expect(function() {
-        commonform.stringify({a: invalidValues[type]});
+        serialize.stringify(fromJS({a: invalidValues[type]}));
       })
         .to.throw(
-          'argument to commonform.stringify contains other than ' +
-          'object, array, or string'
+          'argument to stringify contains other than object, array, ' +
+          'or string'
         );
     });
+  });
+
+  it('round-trips', function() {
+    var ab = fromJS({a: '1', b: '2'});
+    expect(serialize.parse(serialize.stringify(ab)))
+      .to.eql(ab);
   });
 });
