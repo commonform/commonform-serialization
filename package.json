@@ -10,12 +10,9 @@
   "bugs": {
     "url": "https://github.com/commonform/commonform-serialize/issues"
   },
-  "dependencies": {
-    "immutable": "^3.6.2"
-  },
   "devDependencies": {
     "chai": "^1.10.0",
-    "check-versions": "0.0.1",
+    "check-versions": "1.x",
     "istanbul": "^0.3.5",
     "jscs": "^1.10.0",
     "jshint": "^2.6.0",
@@ -36,10 +33,14 @@
   },
   "scripts": {
     "check": "check-versions --check-module",
-    "coverage": "istanbul cover _mocha -- && istanbul check-coverage coverage/coverage.json",
+    "coverage": "istanbul cover _mocha && istanbul check-coverage coverage/coverage.json",
     "lint": "jshint source test && jscs source test",
     "pre-commit": "npm run lint && npm run check && npm run coverage",
     "test": "mocha",
     "travis-ci": "npm run pre-commit"
+  },
+  "dependencies": {
+    "is-array": "^1.0.1",
+    "is-object": "^1.0.1"
   }
 }
