@@ -1,4 +1,5 @@
-var Immutable = require('immutable');
+var isArray = require('is-array');
+var isObject = require('is-object');
 
 var quote = function(string) {
   return '"' + string.replace(/"/g, '\\"') + '"';
@@ -11,15 +12,15 @@ var list = function(start, values, end) {
 exports.stringify = function stringify(argument) {
   if (typeof argument === 'string') {
     return quote(argument);
-  } else if (Immutable.List.isList(argument)) {
+  } else if (isArray(argument)) {
     return list('[', argument.map(stringify), ']');
-  } else if (Immutable.Map.isMap(argument)) {
+  } else if (isObject(argument)) {
     return list(
       '{',
-      argument.keySeq()
+      Object.keys(argument)
         .sort() // Sorting of keys occurs here.
         .map(function(name) {
-          return quote(name) + ':' + stringify(argument.get(name));
+          return quote(name) + ':' + stringify(argument[name]);
         }),
       '}'
     );
@@ -31,8 +32,6 @@ exports.stringify = function stringify(argument) {
   }
 };
 
-exports.parse = function(argument) {
-  return Immutable.fromJS(JSON.parse(argument));
-};
+exports.parse = JSON.parse.bind(JSON);
 
 exports.version = '0.2.0';
