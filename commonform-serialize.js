@@ -34,4 +34,4 @@ exports.stringify = function stringify(argument) {
 
 exports.parse = JSON.parse.bind(JSON);
 
-exports.version = '0.2.0';
+exports.version = '0.4.0';

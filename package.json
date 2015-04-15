@@ -1,7 +1,7 @@
 {
   "name": "commonform-serialize",
   "description": "serialize Common Form content objects",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
   "bugs": "https://github.com/commonform/commonform-serialize/issues",
   "dependencies": {
