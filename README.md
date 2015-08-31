@@ -11,7 +11,7 @@ assert.deepEqual(
   serialize.stringify({ b: '2', a: '1' }))
 ```
 
-Outputs valid JSON `Object` and `Array`:
+Outputs valid JSON `String`, `Object`, and `Array`:
 
 ```javascript
 var a1 = { a: '1' }
