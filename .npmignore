@@ -1,7 +1,2 @@
-*.tgz
-.gitignore
-.istanbul.yml
 .npmignore
 .travis.yml
-coverage/
-test/
