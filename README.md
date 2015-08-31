@@ -14,17 +14,20 @@ assert.deepEqual(
 Outputs valid JSON `Object` and `Array`:
 
 ```javascript
+var a1 = { a: '1' }
 assert.deepEqual(
-  JSON.parse(serialize.stringify({ a: '1' })),
-  { a: '1' })
+  JSON.parse(serialize.stringify(a1)),
+  a1)
 
+var a12 = { a: [ '1', '2' ] }
 assert.deepEqual(
-  JSON.parse(serialize.stringify({ a: [ '1', '2' ] })),
-  { a : [ '1', '2' ] })
+  JSON.parse(serialize.stringify(a12)),
+  a12)
 
+var aEmpty = { a: [ ] }
 assert.deepEqual(
-  JSON.parse(serialize.stringify({ a: [ ] })),
-  { a: [ ] })
+  JSON.parse(serialize.stringify(aEmpty)),
+  aEmpty)
 ```
 
 Escapes quotation marks:
@@ -56,7 +59,8 @@ Object.getOwnPropertyNames(invalidValues)
 Roundtrips to JSON:
 
 ```javascript
+var a1b2 = { a: '1', b: '2' }
 assert.deepEqual(
-  serialize.parse(serialize.stringify({ a: '1', b: '2' })),
-  { a: '1', b: '2' })
+  serialize.parse(serialize.stringify(a1b2)),
+  a1b2)
 ```
