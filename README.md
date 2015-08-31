@@ -55,12 +55,3 @@ Object.getOwnPropertyNames(invalidValues)
         'argument to stringify contains other than object, array, ' +
         'or string') })
 ```
-
-Roundtrips to JSON:
-
-```javascript
-var a1b2 = { a: '1', b: '2' }
-assert.deepEqual(
-  serialize.parse(serialize.stringify(a1b2)),
-  a1b2)
-```
