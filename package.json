@@ -22,7 +22,6 @@
     "serialization"
   ],
   "license": "Apache-2.0",
-  "main": "source/index",
   "repository": "commonform/commonform-serialize",
   "scripts": {
     "coverage": "istanbul check-coverage --config .dotfiles/istanbul.yml coverage/coverage.json",
