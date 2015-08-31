@@ -9,9 +9,8 @@
     "is-object": "^1.0.1"
   },
   "devDependencies": {
-    "chai": "^2.2.0",
-    "istanbul": "^0.3.5",
-    "mocha": "^2.1.0"
+    "defence-cli": "~1.0.1",
+    "replace-require-self": "~1.0.0"
   },
   "homepage": "https://commonform.github.io",
   "keywords": [
@@ -24,9 +23,6 @@
   "license": "Apache-2.0",
   "repository": "commonform/commonform-serialize",
   "scripts": {
-    "coverage": "istanbul check-coverage --config .dotfiles/istanbul.yml coverage/coverage.json",
-    "precommit": "npm run coverage",
-    "precoverage": "istanbul cover --config .dotfiles/istanbul.yml -- _mocha --opts .dotfiles/mocha.opts",
-    "test": "mocha --opts .dotfiles/mocha.opts"
+    "test": "defence README.md | replace-require-self | node"
   }
 }
