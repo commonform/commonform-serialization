@@ -3,7 +3,6 @@
   "description": "serialize Common Forms",
   "version": "0.4.1",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
-  "bugs": "https://github.com/commonform/commonform-serialize/issues",
   "dependencies": {
     "is-array": "^1.0.1",
     "is-object": "^1.0.1"
@@ -12,7 +11,6 @@
     "defence-cli": "~1.0.1",
     "replace-require-self": "~1.0.0"
   },
-  "homepage": "https://commonform.github.io",
   "keywords": [
     "contracts",
     "document assembly",
