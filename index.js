@@ -1,14 +1,6 @@
 var isArray = require('is-array')
 var isObject = require('is-object')
 
-function quote (string) {
-  return '"' + string.replace(/"/g, '\\"') + '"'
-}
-
-function list (start, values, end) {
-  return start + values.join(',') + end
-}
-
 exports.stringify = function stringify (argument) {
   if (typeof argument === 'string') {
     return quote(argument)
@@ -29,6 +21,14 @@ exports.stringify = function stringify (argument) {
       'argument to stringify contains other than object, array, or ' +
       'string')
   }
+}
+
+function quote (string) {
+  return '"' + string.replace(/"/g, '\\"') + '"'
+}
+
+function list (start, values, end) {
+  return start + values.join(',') + end
 }
 
 exports.parse = JSON.parse.bind(JSON)
