@@ -19,7 +19,8 @@ exports.stringify = function stringify (argument) {
   } else {
     throw new TypeError(
       'argument to stringify contains other than object, array, or ' +
-      'string')
+      'string'
+    )
   }
 }
 
