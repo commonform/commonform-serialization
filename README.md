@@ -1,3 +1,9 @@
+# commonform-serialize
+
+serialize Common Forms
+
+This package defines a uniform, deterministic way to serialize Common Form objects, so they can be [hashed](https://www.npmjs.com/package/commonform-hash) consistently.
+
 ```javascript
 var serialize = require('commonform-serialize')
 ```
