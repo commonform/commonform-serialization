@@ -1,11 +1,11 @@
 var isArray = require('is-array')
 var isObject = require('is-object')
 
-var quote = function (string) {
+function quote (string) {
   return '"' + string.replace(/"/g, '\\"') + '"'
 }
 
-var list = function (start, values, end) {
+function list (start, values, end) {
   return start + values.join(',') + end
 }
 
